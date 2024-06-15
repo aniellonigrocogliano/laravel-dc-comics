@@ -16,4 +16,4 @@ use App\Http\Controllers\CoomicController as CoomicController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/coomic', [CoomicController::class, 'coomic']);
+Route::resource('coomic', CoomicController::class);
