@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coomics', function (Blueprint $table) {
+        Schema::create('Coomics', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->string('thumb');
-            $table->float('price');
+            $table->string('price');
             $table->string('series');
             $table->date('sale_date');
             $table->string('type');
