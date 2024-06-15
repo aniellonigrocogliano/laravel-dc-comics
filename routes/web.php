@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController as HomeController;
 
+use App\Http\Controllers\CoomicController as CoomicController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +16,4 @@ use App\Http\Controllers\HomeController as HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/coomic', [CoomicController::class, 'coomic']);
