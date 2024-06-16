@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Coomic;
+use Carbon\Carbon;
 
 class CoomicController extends Controller
 {
@@ -19,8 +20,9 @@ class CoomicController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    { {
+            return view("coomic.create");
+        }
     }
 
     /**
@@ -28,7 +30,14 @@ class CoomicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['sale_date'] = \Carbon\Carbon::createFromFormat('Y-m-d', $data['sale_date'])->format('Y-m-d');
+        $data['price'] = "$" . $data['price'];
+        $coomic = new Coomic();
+        $coomic->fill($data);
+        $coomic->save();
+
+        return redirect()->route("coomic.show", ["coomic" => $coomic->id]);
     }
 
     /**
@@ -60,6 +69,8 @@ class CoomicController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $coomic = Coomic::findOrFail($id);
+        $coomic->delete();
+        return redirect()->route('coomic.index');
     }
 }

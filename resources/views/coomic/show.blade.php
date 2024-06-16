@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container m-3">
-        <div class="card">
-            <img src="{{ $coomic->thumb }}" class="card-img-fluid" alt="{{ $coomic->title }}">
+    <div class="container">
+        <div class="card ">
+            <img src="{{ $coomic->thumb }}" class="img-thumbnail rounded mx-auto d-block"alt="{{ $coomic->title }}"
+                style="width: 350px;">
             <div class="card-body">
                 <h5 class="card-title">{{ $coomic->title }}</h5>
                 <p class="card-text">Serie: {{ $coomic->series }}</p>
@@ -14,6 +15,5 @@
 
             </div>
         </div>
-        <a class="btn btn-outline-danger" href="{{ route('coomic.index') }}">Torna indietro</a>
     </div>
 @endsection
