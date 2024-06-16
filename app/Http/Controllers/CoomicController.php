@@ -12,7 +12,8 @@ class CoomicController extends Controller
      */
     public function index()
     {
-        return view('comic.index');
+        $coomics = Coomic::all();
+        return view('coomic.index', compact('coomics'));
     }
     /**
      * Show the form for creating a new resource.
@@ -33,9 +34,9 @@ class CoomicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Coomic $coomic)
     {
-        //
+        return view('coomic.show', compact('coomic'));
     }
 
     /**
