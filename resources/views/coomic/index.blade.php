@@ -27,7 +27,8 @@
                         <td><a class="btn btn-outline-primary" href="{{ route('coomic.show', $coomics->id) }}">Dettagli</a>
                         <td><a class="btn btn-outline-warning" href="{{ route('coomic.edit', $coomics->id) }}">Modifica</a>
                         <td>
-                            <form action="{{ route('coomic.destroy', $coomics->id) }}" method="POST">
+                            <form action="{{ route('coomic.destroy', $coomics->id) }}" method="POST"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare questo fumetto?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger">Elimina</button>
