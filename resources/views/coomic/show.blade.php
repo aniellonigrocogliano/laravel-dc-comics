@@ -15,5 +15,6 @@
 
             </div>
         </div>
+        <td><a class="btn btn-outline-primary m-3" href="{{ route('coomic.index') }}">Indietro</a>
     </div>
 @endsection

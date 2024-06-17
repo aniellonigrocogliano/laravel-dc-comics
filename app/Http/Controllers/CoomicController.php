@@ -51,25 +51,27 @@ class CoomicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Coomic $coomic)
     {
-        //
+        return view('coomic.edit', compact('coomic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Coomic $coomic)
     {
-        //
+        $data = $request->all();
+        $coomic->update($data);
+        return redirect()->route('coomic.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Coomic $coomic)
     {
-        $coomic = Coomic::findOrFail($id);
+
         $coomic->delete();
         return redirect()->route('coomic.index');
     }

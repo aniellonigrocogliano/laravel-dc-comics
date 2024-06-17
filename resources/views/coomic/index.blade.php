@@ -25,6 +25,7 @@
                         <td>{{ $coomics->price }}</td>
                         <td>{{ $coomics->sale_date }}</td>
                         <td><a class="btn btn-outline-primary" href="{{ route('coomic.show', $coomics->id) }}">Dettagli</a>
+                        <td><a class="btn btn-outline-warning" href="{{ route('coomic.edit', $coomics->id) }}">Modifica</a>
                         <td>
                             <form action="{{ route('coomic.destroy', $coomics->id) }}" method="POST">
                                 @csrf
