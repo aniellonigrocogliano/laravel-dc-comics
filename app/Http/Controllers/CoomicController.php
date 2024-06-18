@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Coomic;
 use Carbon\Carbon;
+use App\Http\Requests\StoreCoomicRequest;
 
 class CoomicController extends Controller
 {
@@ -28,7 +29,7 @@ class CoomicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCoomicRequest $request)
     {
         $data = $request->all();
         $data['sale_date'] = \Carbon\Carbon::createFromFormat('Y-m-d', $data['sale_date'])->format('Y-m-d');
