@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Coomic;
 use Carbon\Carbon;
 use App\Http\Requests\StoreCoomicRequest;
+use App\Http\Requests\UpdateCoomicRequest;
 
 class CoomicController extends Controller
 {
@@ -54,15 +55,17 @@ class CoomicController extends Controller
      */
     public function edit(Coomic $coomic)
     {
+        $coomic->price = str_replace('$', '', $coomic->price);
         return view('coomic.edit', compact('coomic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Coomic $coomic)
+    public function update(UpdateCoomicRequest $request, Coomic $coomic)
     {
         $data = $request->all();
+        $data['price'] = "$" . $data['price'];
         $coomic->update($data);
         return redirect()->route('coomic.index');
     }
