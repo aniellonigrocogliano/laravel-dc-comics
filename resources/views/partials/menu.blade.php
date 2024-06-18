@@ -37,6 +37,15 @@
                             Aggiungi
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('trash') }}"
+                            class="nav-link {{ Route::currentRouteName() == 'trash' ? 'text-primary' : 'text-white' }}">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </svg>
+                            Cestino
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

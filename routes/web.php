@@ -17,3 +17,6 @@ use App\Http\Controllers\CoomicController as CoomicController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');;
 Route::resource('coomic', CoomicController::class);
+Route::get('/trash', [CoomicController::class, 'trash'])->name('trash');
+Route::delete('/delete/{coomic}', [CoomicController::class, 'delete'])->name('coomic.delete');
+Route::put('/coomic/{coomic}/restore', [CoomicController::class, 'restore'])->name('coomic.restore');

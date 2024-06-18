@@ -79,4 +79,25 @@ class CoomicController extends Controller
         $coomic->delete();
         return redirect()->route('coomic.index');
     }
+
+    public function trash()
+    {
+        $coomics = Coomic::onlyTrashed()->get();
+
+        return view('trash', compact('coomics'));
+    }
+
+    public function delete($id)
+    {
+        $coomic = Coomic::withTrashed()->findOrFail($id);
+        $coomic->forceDelete();
+        return redirect()->route('trash');
+    }
+    public function restore($id)
+    {
+
+        $coomic = Coomic::withTrashed()->findOrFail($id);
+        $coomic->restore();
+        return redirect()->route('coomic.index');
+    }
 }
